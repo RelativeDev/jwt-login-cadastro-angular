@@ -1,6 +1,7 @@
 package com.backend.backend.domain;
 
 import com.backend.backend.domain.enums.Perfil;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -10,6 +11,7 @@ import java.util.List;
 @Entity
 public class Cliente extends Pessoa{
 
+    @JsonIgnore
     @OneToMany(mappedBy = "cliente")
     private List<Chamado> chamados = new ArrayList<>();
 
