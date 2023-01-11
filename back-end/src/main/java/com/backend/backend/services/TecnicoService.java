@@ -1,6 +1,7 @@
 package com.backend.backend.services;
 
 import com.backend.backend.domain.Tecnico;
+import com.backend.backend.domain.dtos.TecnicoDTO;
 import com.backend.backend.repositories.TecnicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,5 +22,11 @@ public class TecnicoService {
 
     public List<Tecnico> findAll() {
         return tecnicoRepository.findAll();
+    }
+
+    public Tecnico create(TecnicoDTO objDTO) {
+        objDTO.setId(null);
+        Tecnico newObj = new Tecnico(objDTO);
+        return tecnicoRepository.save(newObj);
     }
 }
