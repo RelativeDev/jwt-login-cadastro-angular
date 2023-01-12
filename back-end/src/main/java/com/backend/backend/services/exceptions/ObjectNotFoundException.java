@@ -1,4 +1,4 @@
-package com.backend.backend.services;
+package com.backend.backend.services.exceptions;
 
 public class ObjectNotFoundException extends RuntimeException{
 
