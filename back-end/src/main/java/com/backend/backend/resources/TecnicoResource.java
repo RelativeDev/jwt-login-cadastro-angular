@@ -5,6 +5,7 @@ import com.backend.backend.domain.dtos.TecnicoDTO;
 import com.backend.backend.services.TecnicoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -33,6 +34,7 @@ public class TecnicoResource {
         return ResponseEntity.ok().body(listDTO);
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @PostMapping()
     public ResponseEntity<TecnicoDTO> create(@Valid @RequestBody TecnicoDTO objDTO) {
         Tecnico newObject = service.create(objDTO);
@@ -46,6 +48,7 @@ public class TecnicoResource {
         return ResponseEntity.ok().body(new TecnicoDTO(Obj));
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN')")
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<TecnicoDTO> delete(@PathVariable Integer id) {
         service.delete(id);
