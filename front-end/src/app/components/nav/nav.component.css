@@ -1,5 +1,6 @@
 .container {
     height: 100%;
+    background-color: rgb(147, 159, 170);
 }
 
 .sidenav {
@@ -26,4 +27,8 @@ img {
     margin: 1rem 0 0 1rem;
     color: white;
     background: #222d32;
+}
+
+.mat-card {
+    color: black;
 }
